@@ -7,8 +7,8 @@ public class Route {
     private int distance;
 
     public Route(String source, String destination, int distance) {
-        this.source = source;
-        this.destination = destination;
+        this.source = source.split("-")[0];
+        this.destination = destination.split("-")[0];
         this.distance = distance;
     }
 

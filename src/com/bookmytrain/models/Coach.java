@@ -1,29 +1,28 @@
 package com.bookmytrain.models;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Coach {
-    private String type;
-    private int number;
-    private int number_of_seats;
-    private ArrayList<Seat> seat_list;
-    private int available_seats;
-    private int booked_seats;
+    private String coach_name;
+    private String travel_class;
+    private int coach_number;
+    private int total_seats;
+    private List<Seat> seats;
 
-    public Coach(String type, int number_of_seats) {
-        this.type = type;
-        this.number_of_seats = number_of_seats;
-        this.seat_list = new ArrayList<>();
+    public Coach(String coach_name, String travel_class, int coach_number, int total_seats) {
+        this.travel_class = travel_class;
+        this.coach_name = coach_name;
+        this.coach_number = coach_number;
+        this.total_seats = total_seats;
+        seats = new ArrayList<>();
 
-        for (int i = 0; i < number_of_seats; i++) {
-            seat_list.add(new Seat());
+        for(int i = 0 ; i<total_seats ; i++) {
+            seats.add(new Seat(coach_number, i+1));
         }
-
-        available_seats = number_of_seats;
     }
 
-    @Override
-    public String toString() {
-        return type + number_of_seats;
+    public List<Seat> getSeats() {
+        return seats;
     }
+
 }
